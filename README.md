@@ -1,4 +1,4 @@
-# -Frequency-Modulation-and-Demodulation-using-NumPy-and-Matplotlib-
+# Frequency-Modulation-and-Demodulation-using-NumPy-and-Matplotlib-
 
 __Aim:__
 
@@ -33,7 +33,59 @@ __Algorithm:__
 6. Plot the Signals: Use Matplotlib to plot the message signal, carrier signal, and modulated signal.
 
 __Programme:__
+```Python
+import numpy as np
+import matplotlib.pyplot as plt
+
+Am = 10.3
+Fm = 400
+B  = 5
+Ac = 20.6
+Fc = 4000
+Fs = 40000
+
+T = np.arange(0, 2/Fm, 1/Fs)
+
+em = Am * np.cos(2 * np.pi * Fm * T)
+
+plt.subplot(3, 1, 1)
+plt.plot(T, em)
+plt.title("Message Signal")
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+plt.grid()
+
+ec = Ac * np.cos(2 * np.pi * Fc * T)
+
+plt.subplot(3, 1, 2)
+plt.plot(T, ec)
+plt.title("Carrier Signal")
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+plt.grid()
+
+efm = Ac * np.cos((2 * np.pi * Fc * T) + (B * np.sin(2 * np.pi * Fm * T)))
+
+plt.subplot(3, 1, 3)
+plt.plot(T, efm)
+plt.title("FM Signal")
+plt.xlabel("Time")
+plt.ylabel("Amplitude")
+plt.grid()
+
+plt.tight_layout()
+plt.show()
+
+```
+__Tabulation__
+
+![FM tbale](https://github.com/user-attachments/assets/6da95663-801a-4733-8665-b817a9218df1)
 
 __Output:__
 
+<img width="801" height="602" alt="FM Modulation using python" src="https://github.com/user-attachments/assets/9597f9be-d659-4462-a0b2-7d9708eaa08e" />
+
+
 __Result:__
+
+Thus Frequency-Modulation-and-Demodulation-using-NumPy-and-Matplotlib is experimentally done and the output is verified
